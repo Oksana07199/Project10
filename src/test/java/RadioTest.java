@@ -4,7 +4,7 @@ import ru.netology.stats.Project10.service.Radio;
 
 public class RadioTest {
     @Test
-    public void testNext() {
+    public void NextRightBorder() {
         Radio radio = new Radio();
         radio.setCurrentRadioStation(8);
         radio.next();
@@ -12,9 +12,17 @@ public class RadioTest {
         int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
-
     @Test
-    public void PrevTest() {
+    public void NextLeftBorder() {
+        Radio radio = new Radio();
+        radio.setCurrentRadioStation(9);
+        radio.next();
+        int expected = 0;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void PrevLeftBorder() {
         Radio radio = new Radio();
         radio.setCurrentRadioStation(0);
         radio.prev();
@@ -22,13 +30,21 @@ public class RadioTest {
         int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
-
     @Test
-    public void checkVolumeOnIncrease() {
+    public void PrevRightBorder() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(20);
+        radio.setCurrentRadioStation(9);
+        radio.prev();
+        int expected = 8;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+   public void checkVolumeOnIncrease() {
+       Radio radio = new Radio();
+        radio.setCurrentVolume(40);
         radio.increaseVolume();
-        int expected = 21;
+        int expected = 41;
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
