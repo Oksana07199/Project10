@@ -1,11 +1,28 @@
 package ru.netology.stats.Project10.service;
+
 public class Radio {
-    private int currentStation;
+    private int currentRadioStation;
     private int currentVolume;
+
+    public void next() {
+        if (currentRadioStation != 9) {
+            currentRadioStation++;
+        } else {
+            currentRadioStation = 0;
+        }
+    }
+
+    public void prev() {
+        if (currentRadioStation != 0) {
+            currentRadioStation--;
+        } else {
+            currentRadioStation = 9;
+        }
+    }
 
     public int getCurrentRadioStation() {
 
-        return currentStation;
+        return currentRadioStation;
     }
 
     public int getCurrentVolume() {
@@ -13,14 +30,14 @@ public class Radio {
         return currentVolume;
     }
 
-    public void setCurrentRadioStation(int newCurrentStation) {
-        if (newCurrentStation > 9) {
+    public void setCurrentRadioStation(int newCurrentRadiostation) {
+        if (newCurrentRadiostation > 9) {
             return;
         }
-        if (newCurrentStation < 0) {
+        if (newCurrentRadiostation < 0) {
             return;
         }
-        currentStation = newCurrentStation;
+        currentRadioStation = newCurrentRadiostation;
     }
 
 
@@ -47,20 +64,20 @@ public class Radio {
     }
 
     public void increaseRadiostation() {
-        if (currentStation < 9) {
-            currentStation = currentStation + 1;
+        if (currentRadioStation < 9) {
+            currentRadioStation = currentRadioStation + 1;
         }
-        if (currentStation == 9) {
-            currentStation = 0;
+        if (currentRadioStation == 9) {
+            currentRadioStation = 0;
         }
     }
 
     public void decreaseRadiostation() {
-        if (currentStation > 0) {
-            currentStation = currentStation - 1;
+        if (currentRadioStation > 0) {
+            currentRadioStation = currentRadioStation - 1;
         }
-        if (currentStation == 0) {
-            currentStation = 9;
+        if (currentRadioStation == 0) {
+            currentRadioStation = 9;
         }
     }
 
