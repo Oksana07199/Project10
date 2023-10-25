@@ -13,15 +13,17 @@ public class RadioTest {
         int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void checkBoundaryValue9() {
         Radio radio = new Radio();
         radio.setCurrentRadioStation(9);
-        radio.increaseRadiostation();
+        radio.next();
         int expected = 0;
         int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void checkBoundaryValue10() {   //ГРАНИЧНЫЕ ЗНАЧЕНИЯ 10
         Radio radio = new Radio();
@@ -30,15 +32,17 @@ public class RadioTest {
         int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void RadiostationOnIncrease() { //увеличение (гран.знач 1)
         Radio radio = new Radio();
         radio.setCurrentRadioStation(1);
-        radio.increaseRadiostation();
+        radio.next();
         int expected = 2;
         int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void checkLowerBound0() {  //ГРАНИЧНЫЕ ЗНАЧЕНИЯ 0
         Radio radio = new Radio();
@@ -66,6 +70,7 @@ public class RadioTest {
         int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void PrevRightBorder() {
         Radio radio = new Radio();
@@ -75,6 +80,7 @@ public class RadioTest {
         int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void RadiostationOnDecrease() { //уменьшение радиостанции
         Radio radio = new Radio();
@@ -84,6 +90,7 @@ public class RadioTest {
         int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void RadiostationOnDecreaseMin() {   //станц на уменьш
         Radio radio = new Radio();
@@ -104,8 +111,8 @@ public class RadioTest {
     }
 
     @Test
-   public void checkVolumeOnIncrease() {
-       Radio radio = new Radio();
+    public void checkVolumeOnIncrease() {
+        Radio radio = new Radio();
         radio.setCurrentVolume(40);
         radio.increaseVolume();
         int expected = 41;
